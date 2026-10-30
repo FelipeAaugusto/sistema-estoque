@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Estoque</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1> Sistema de Estoque</h1>
+        <a href="{{ url_for('novo_produto') }}" class="btn">+ Novo Produto</a>
+    </header>
+
+    <main>
+        {% if produtos %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Categoria</th>
+                    <th>Quantidade</th>
+                    <th>Preço</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in produtos %}
+                <tr class="{% if p['quantidade'] <= p['estoque_minimo'] %}estoque-baixo{% endif %}">
+                    <td>{{ p['id'] }}</td>
+                    <td>{{ p['nome'] }}</td>
+                    <td>{{ p['categoria'] or '—' }}</td>
+                    <td>{{ p['quantidade'] }}</td>
+                    <td>R$ {{ "%.2f"|format(p['preco']) }}</td>
+                    <td>
+                        {% if p['quantidade'] <= p['estoque_minimo'] %}
+                            ⚠️ Baixo
+                        {% else %}
+                            ✅ Ok
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="vazio">Nenhum produto cadastrado ainda. Clique em "+ Novo Produto".</p>
+        {% endif %}
+    </main>
+</body>
+</html>

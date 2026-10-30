@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Produto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1> Novo Produto</h1>
+        <a href="{{ url_for('index') }}" class="btn secundario">← Voltar</a>
+    </header>
+
+    <main>
+        <form method="POST" class="formulario">
+            <label>
+                Nome *
+                <input type="text" name="nome" required>
+            </label>
+
+            <label>
+                Descrição
+                <textarea name="descricao" rows="3"></textarea>
+            </label>
+
+            <label>
+                Categoria
+                <input type="text" name="categoria" placeholder="ex: Eletrônicos">
+            </label>
+
+            <div class="linha">
+                <label>
+                    Quantidade *
+                    <input type="number" name="quantidade" min="0" value="0" required>
+                </label>
+
+                <label>
+                    Preço (R$) *
+                    <input type="text" name="preco" placeholder="0.00" required>
+                </label>
+
+                <label>
+                    Estoque mínimo
+                    <input type="number" name="estoque_minimo" min="0" value="0">
+                </label>
+            </div>
+
+            <button type="submit" class="btn">Salvar Produto</button>
+        </form>
+    </main>
+</body>
+</html>

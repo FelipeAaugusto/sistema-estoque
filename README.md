@@ -24,8 +24,7 @@ O SQLite já vem embutido no Python.
 
 ## Estrutura do projeto
 
-text
-
+```text
 sistema-estoque/
 ├── app.py              # rotas e lógica
 ├── estoque.db          # banco (criado automaticamente)

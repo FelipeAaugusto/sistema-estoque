@@ -34,7 +34,7 @@ sistema-estoque/
 └── static/
     └── css/
         └── style.css
-´´´text
+```text
         
 ## Rotas
 Rota	O que faz

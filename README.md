@@ -24,17 +24,17 @@ O SQLite já vem embutido no Python.
 
 ## Estrutura do projeto
 
-
+```text
 sistema-estoque/
-├── app.py
-├── estoque.db
-├── templates/
-│   ├── index.html
-│   └── form_produto.html
-└── static/
-    └── css/
-        └── style.css
-        
+|-- app.py
+|-- estoque.db
+|-- templates/
+|   |-- index.html
+|   `-- form_produto.html
+`-- static/
+    `-- css/
+        `-- style.css
+```
 
 ## Rotas
 Rota	O que faz

@@ -22,30 +22,11 @@ Permite cadastrar e visualizar produtos, com alerta visual automático para iten
 
 O SQLite já vem embutido no Python.
 
-## Quick Start
-
-```bash
-git clone https://github.com/FelipeAaugusto/sistema-estoque.git
-cd SEU_REPOSITORIO
-
-python -m venv venv
-
-# Windows
-.\venv\Scripts\Activate.ps1
-# Mac / Linux
-# source venv/bin/activate
-
-pip install -r requirements.txt
-python app.py
-
-Abra em http://127.0.0.1:5000.
-Structure
-text
+## Estrutura do projeto
 
 sistema-estoque/
-├── app.py
-├── estoque.db              # gerado automaticamente
-├── requirements.txt
+├── app.py              # rotas e lógica
+├── estoque.db          # banco (criado automaticamente)
 ├── templates/
 │   ├── index.html
 │   └── form_produto.html
@@ -53,46 +34,22 @@ sistema-estoque/
     └── css/
         └── style.css
 
-Usage
-Rota	Método	Ação
-/	GET	Lista produtos
-/produtos/novo	GET	Exibe formulário
-/produtos/novo	POST	Salva produto
+## Rotas
+Rota	O que faz
+/	Lista os produtos
+/produtos/novo	Formulário de cadastro
+Sobre o alerta de estoque
 
-Regra de alerta: linha em vermelho quando quantidade <= estoque_minimo.
-Configuration
+O sistema considera que um produto está com estoque baixo quando:
+text
 
-Sem configuração externa. O banco estoque.db é criado na primeira execução.
+quantidade <= estoque_minimo
 
-Para renomear, edite em app.py:
-python
+Essa comparação é feita direto no template (Jinja2), e a linha fica destacada em vermelho automaticamente.
 
-DATABASE = 'estoque.db'
+## O que pretendo adicionar
 
-Development
-bash
-
-pip install -r requirements.txt
-python app.py
-
-Roda com debug=True (auto-reload). Apenas em desenvolvimento.
-Roadmap
-
-    ☑
-
-    Cadastro e listagem de produtos
-    ☑
-
-    Alerta de estoque baixo
-    ☑
-
-    Interface responsiva
-    □
-
-    Edição e exclusão de produtos
-    □
-
-    Busca e filtro por categoria
-    □
-
-    Histórico de movimentações
+    □ Editar e excluir produtos
+    □ Busca por nome
+    □ Filtro por categoria
+    □ Histórico de entradas e saídas

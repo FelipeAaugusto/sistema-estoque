@@ -51,7 +51,7 @@ Essa comparação é feita direto no template (Jinja2), e a linha fica destacada
 
 ## O que pretendo adicionar
 
-    □ Editar e excluir produtos
+    ■ Editar e excluir produtos
     □ Busca por nome
     □ Filtro por categoria
     □ Histórico de entradas e saídas
